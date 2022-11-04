@@ -19,15 +19,20 @@ struct Home: View {
                 LocationSearchActivation()
                     .padding(.top, 72)
                     .onTapGesture {
-                        showLocationSearchView.toggle()
+                        withAnimation(.easeInOut) {
+                            showLocationSearchView.toggle()
+                        }
                     }
             } else {
                 LocationSearch()
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
+                    .zIndex(1)
             }
             
-            MapViewActionButton()
+            MapViewActionButton(showLocationSearchView: $showLocationSearchView)
                 .padding(.leading)
                 .padding(.top, 4)
+                .zIndex(2)
         }
     }
 }

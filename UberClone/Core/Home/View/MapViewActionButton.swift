@@ -8,26 +8,42 @@
 import SwiftUI
 
 struct MapViewActionButton: View {
+    @Binding var showLocationSearchView: Bool
+    @State private var showButtonAfterTime = false
+    
     var body: some View {
-        Button {
-            
-        } label: {
-            Image(systemName: "line.3.horizontal")
-                .font(.title2)
-                .foregroundColor(.black)
-                .padding()
-                .background(.regularMaterial)
-                .clipShape(Circle())
-                .shadow(color: .gray, radius: 6, x: 0, y: 0)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
+        if showLocationSearchView {
+            Button {
+                withAnimation(.easeInOut) {
+                    showLocationSearchView.toggle()
+                }
+            } label: {
+                if showButtonAfterTime {
+                    Image(systemName: "chevron.left")
+                        .font(.title2)
+                        .foregroundColor(.black)
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    withAnimation(.easeInOut) {
+                        showButtonAfterTime.toggle()
+                    }
+                }
+            }
+            .onDisappear {
+                withAnimation(.easeInOut) {
+                    showButtonAfterTime.toggle()
+                }
+            }
         }
-
     }
 }
 
 struct MapViewActionButton_Previews: PreviewProvider {
     static var previews: some View {
-        MapViewActionButton()
+        Home()
     }
 }

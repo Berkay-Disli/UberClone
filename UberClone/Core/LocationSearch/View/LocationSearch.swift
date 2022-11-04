@@ -31,13 +31,13 @@ struct LocationSearch: View {
                     TextField("Current Location", text: $startLocationText)
                         .padding(.leading)
                         .frame(height: 32)
-                        .background(Color(.systemGroupedBackground))
+                        .background(.thickMaterial)
                         .padding(.trailing)
                     
                     TextField("Where to?", text: $destinationLocationText)
                         .padding(.leading)
                         .frame(height: 32)
-                        .background(Color(.systemGray4))
+                        .background(.ultraThinMaterial)
                         .padding(.trailing)
                 }
             }

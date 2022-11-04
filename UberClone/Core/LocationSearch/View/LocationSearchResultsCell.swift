@@ -31,9 +31,9 @@ struct LocationSearchResultsCell: View {
                 
                 Spacer()
             }
+            .padding(.leading)
             Divider()
         }
-        .padding(.leading)
     }
 }
 
