@@ -12,6 +12,8 @@
 		234D0CAF29156C7E007CCEC5 /* LocationSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234D0CAE29156C7E007CCEC5 /* LocationSearch.swift */; };
 		234D0CB129156ED2007CCEC5 /* LocationSearchResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234D0CB029156ED2007CCEC5 /* LocationSearchResultsCell.swift */; };
 		234E30B0291665A1000DBB7F /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E30AF291665A1000DBB7F /* LocationSearchViewModel.swift */; };
+		23AE002D291D325400476825 /* placeholder.riv in Resources */ = {isa = PBXBuildFile; fileRef = 23AE002C291D325400476825 /* placeholder.riv */; };
+		23AE0038291D68D300476825 /* car.riv in Resources */ = {isa = PBXBuildFile; fileRef = 23AE0036291D68D300476825 /* car.riv */; };
 		23F7AE54291537E30051E1BD /* UberCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F7AE53291537E30051E1BD /* UberCloneApp.swift */; };
 		23F7AE58291537E30051E1BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F7AE57291537E30051E1BD /* Assets.xcassets */; };
 		23F7AE5C291537E30051E1BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F7AE5B291537E30051E1BD /* Preview Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		234D0CAE29156C7E007CCEC5 /* LocationSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearch.swift; sourceTree = "<group>"; };
 		234D0CB029156ED2007CCEC5 /* LocationSearchResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultsCell.swift; sourceTree = "<group>"; };
 		234E30AF291665A1000DBB7F /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
+		23AE002C291D325400476825 /* placeholder.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = placeholder.riv; sourceTree = "<group>"; };
+		23AE0036291D68D300476825 /* car.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = car.riv; sourceTree = "<group>"; };
 		23F7AE50291537E30051E1BD /* UberClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F7AE53291537E30051E1BD /* UberCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberCloneApp.swift; sourceTree = "<group>"; };
 		23F7AE57291537E30051E1BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,6 +126,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		23AE002B291D322600476825 /* RiveAssets */ = {
+			isa = PBXGroup;
+			children = (
+				23AE0036291D68D300476825 /* car.riv */,
+				23AE002C291D325400476825 /* placeholder.riv */,
+			);
+			path = RiveAssets;
+			sourceTree = "<group>";
+		};
+		23AE0032291D682300476825 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		23F7AE47291537E20051E1BD = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +149,7 @@
 				23F7AE64291537E30051E1BD /* UberCloneTests */,
 				23F7AE6E291537E30051E1BD /* UberCloneUITests */,
 				23F7AE51291537E30051E1BD /* Products */,
+				23AE0032291D682300476825 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +171,7 @@
 				23F7AE80291538730051E1BD /* Extensions */,
 				23F7AE7F291538710051E1BD /* Managers */,
 				23F7AE7E2915386A0051E1BD /* Models */,
+				23AE002B291D322600476825 /* RiveAssets */,
 				23F7AE57291537E30051E1BD /* Assets.xcassets */,
 				23F7AE59291537E30051E1BD /* UberClone.entitlements */,
 				23F7AE5A291537E30051E1BD /* Preview Content */,
@@ -254,6 +276,8 @@
 			dependencies = (
 			);
 			name = UberClone;
+			packageProductDependencies = (
+			);
 			productName = UberClone;
 			productReference = 23F7AE50291537E30051E1BD /* UberClone.app */;
 			productType = "com.apple.product-type.application";
@@ -326,6 +350,9 @@
 				Base,
 			);
 			mainGroup = 23F7AE47291537E20051E1BD;
+			packageReferences = (
+				23AE0027291D312000476825 /* XCRemoteSwiftPackageReference "rive-ios" */,
+			);
 			productRefGroup = 23F7AE51291537E30051E1BD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -343,7 +370,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				23F7AE5C291537E30051E1BD /* Preview Assets.xcassets in Resources */,
+				23AE002D291D325400476825 /* placeholder.riv in Resources */,
 				23F7AE58291537E30051E1BD /* Assets.xcassets in Resources */,
+				23AE0038291D68D300476825 /* car.riv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +759,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		23AE0027291D312000476825 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 23F7AE48291537E20051E1BD /* Project object */;
 }

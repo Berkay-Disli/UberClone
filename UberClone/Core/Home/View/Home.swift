@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct Home: View {
     @State private var showLocationSearchView = false

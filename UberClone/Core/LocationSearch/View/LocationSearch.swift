@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct LocationSearch: View {
     @EnvironmentObject var locationSearchVM: LocationSearchViewModel
@@ -36,29 +37,44 @@ struct LocationSearch: View {
                         .background(.thickMaterial)
                         .padding(.trailing)
                     
+                    #warning("Add clear text function.")
                     TextField("Where to?", text: $locationSearchVM.queryFragment)
                         .padding(.leading)
                         .frame(height: 32)
                         .background(.ultraThinMaterial)
                         .padding(.trailing)
+                    
+                    
                 }
             }
             .padding([.leading, .bottom])
             .padding(.top, 64)
             
-            
-            #warning("When results are empty, show a lottie animation?")
-            ScrollView(showsIndicators: false) {
-                LazyVStack(alignment: .leading) {
-                    ForEach(locationSearchVM.results, id:\.self) { result in
-                        LocationSearchResultsCell(title: result.title, subtitle: result.subtitle)
-                            .onTapGesture {
-                                locationSearchVM.selectLocation(result)
-                                showLocationSearch.toggle()
-                            }
+            if locationSearchVM.results.isEmpty {
+                VStack {
+                    RiveViewModel(fileName: "placeholder")
+                        .view()
+                        .frame(height: 350)
+                        .transition(AnyTransition.scale.animation(.easeInOut))
+                    
+                    Spacer()
+                }
+            } else {
+                ScrollView(showsIndicators: false) {
+                    LazyVStack(alignment: .leading) {
+                        ForEach(locationSearchVM.results, id:\.self) { result in
+                            LocationSearchResultsCell(title: result.title, subtitle: result.subtitle)
+                                .onTapGesture {
+                                    locationSearchVM.selectLocation(result)
+                                    showLocationSearch.toggle()
+                                }
+                        }
                     }
                 }
+                .transition(AnyTransition.opacity.animation(.easeInOut))
             }
+            
+            
         }
         .background(.thickMaterial)
     }

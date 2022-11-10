@@ -16,7 +16,13 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     
     var queryFragment: String = "" {
         didSet {
-            searchCompleter.queryFragment = queryFragment
+            if !queryFragment.isEmpty {
+                searchCompleter.queryFragment = queryFragment
+            } else {
+                self.clearResults()
+            }
+            
+            
         }
     }
     
@@ -43,6 +49,10 @@ class LocationSearchViewModel: NSObject, ObservableObject {
         searchRequest.naturalLanguageQuery = localSearch.title.appending(localSearch.subtitle)
         let search = MKLocalSearch(request: searchRequest)
         search.start(completionHandler: completion)
+    }
+    
+    func clearResults() {
+        results.removeAll(keepingCapacity: false)
     }
 }
 
