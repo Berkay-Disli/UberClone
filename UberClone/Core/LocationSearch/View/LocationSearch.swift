@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct LocationSearch: View {
-    @StateObject var locationSearchVM = LocationSearchViewModel()
+    @EnvironmentObject var locationSearchVM: LocationSearchViewModel
     @State private var startLocationText = ""
-    //@State private var destinationLocationText = ""
+    @Binding var showLocationSearch: Bool
     
     var body: some View {
         VStack {
@@ -47,11 +47,15 @@ struct LocationSearch: View {
             .padding(.top, 64)
             
             
-            
+            #warning("When results are empty, show a lottie animation?")
             ScrollView(showsIndicators: false) {
                 LazyVStack(alignment: .leading) {
                     ForEach(locationSearchVM.results, id:\.self) { result in
-                        LocationSearchResultsCell()
+                        LocationSearchResultsCell(title: result.title, subtitle: result.subtitle)
+                            .onTapGesture {
+                                locationSearchVM.selectLocation(result)
+                                showLocationSearch.toggle()
+                            }
                     }
                 }
             }
@@ -62,6 +66,7 @@ struct LocationSearch: View {
 
 struct LocationSearch_Previews: PreviewProvider {
     static var previews: some View {
-        LocationSearch()
+        LocationSearch(showLocationSearch: .constant(true))
+            .environmentObject(LocationSearchViewModel())
     }
 }

@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct LocationSearchResultsCell: View {
+    let title: String
+    let subtitle: String
+    
     var body: some View {
         VStack {
             HStack {
+                #warning("Find a way to change map icon")
                 Image(systemName: "mappin.circle.fill")
                     .resizable()
                     .foregroundColor(.blue)
@@ -18,10 +22,10 @@ struct LocationSearchResultsCell: View {
                     .frame(width: 40, height: 40)
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Starbucks Coffe")
+                    Text(title)
                         .font(.body)
                     
-                    Text("Emirgan Mah. Istanbul ")
+                    Text(subtitle)
                         .font(.system(size: 15))
                         .foregroundColor(.gray)
                     
@@ -39,6 +43,6 @@ struct LocationSearchResultsCell: View {
 
 struct LocationSearchResultsCell_Previews: PreviewProvider {
     static var previews: some View {
-        LocationSearch()
+        LocationSearch(showLocationSearch: .constant(true))
     }
 }

@@ -24,7 +24,8 @@ struct Home: View {
                         }
                     }
             } else {
-                LocationSearch()
+                #warning("When this view appears, empty the searchText inside of it.")
+                LocationSearch(showLocationSearch: $showLocationSearchView)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
                     .zIndex(1)
             }
